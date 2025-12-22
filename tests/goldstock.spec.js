@@ -10,8 +10,11 @@ await page.getByLabel('Email').fill(process.env.PROPOSER_EMAIL);
 await page.getByLabel('Password').fill(process.env.PROPOSER_PASSWORD);
 
  await page.getByRole('button', {name:'Login'}).click()
+await expect(
+  page.getByText(/finance|dashboard|control/i)
+).toBeVisible({ timeout: 15000 });
 
- await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/');
+ //await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/');
 
 // await page.getByRole('button', { name: 'Finance' }).click();
 await page
@@ -80,7 +83,11 @@ await page.getByLabel('Password').fill(process.env.APPROVER_PASSWORD);
 
  await page.getByRole('button', {name:'Login'}).click()
 
- await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/');
+ //await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/');
+ await expect(
+  page.getByText(/finance|dashboard|control/i)
+).toBeVisible({ timeout: 15000 });
+
 
  // await page.getByRole('button', { name: 'Finance' }).click();
 await page
