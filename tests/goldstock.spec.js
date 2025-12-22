@@ -86,7 +86,7 @@ await page.getByLabel('Password').fill(process.env.APPROVER_PASSWORD);
  //await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/');
  await expect(
   page.getByText(/finance|dashboard|control/i)
-).toBeVisible({ timeout: 15000 });
+).toBeVisible({ timeout: 1500 });
 
 
  // await page.getByRole('button', { name: 'Finance' }).click();
