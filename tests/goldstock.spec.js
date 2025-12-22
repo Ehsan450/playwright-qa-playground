@@ -6,8 +6,8 @@ test('Proposed Gold Stock', async ({ page }) => {
   await page.goto('https://pure-dev-neo.gktechbd.com/login/');
 
 
-await page.getByLabel('Email').fill(process.env.PROPOSER_EMAIL!);
-await page.getByLabel('Password').fill(process.env.PROPOSER_PASSWORD!);
+await page.getByLabel('Email').fill(process.env.PROPOSER_EMAIL);
+await page.getByLabel('Password').fill(process.env.PROPOSER_PASSWORD);
 
  await page.getByRole('button', {name:'Login'}).click()
 
@@ -74,8 +74,8 @@ test('Proposed Gold Stock Approval' , async({page})=>{
 await page.goto('https://pure-dev-neo.gktechbd.com/login/');
 
 
-await page.getByLabel('Email').fill(process.env.APPROVER_EMAIL!);
-await page.getByLabel('Password').fill(process.env.APPROVER_PASSWORD!);
+await page.getByLabel('Email').fill(process.env.APPROVER_EMAIL);
+await page.getByLabel('Password').fill(process.env.APPROVER_PASSWORD);
 
 
  await page.getByRole('button', {name:'Login'}).click()
