@@ -2,7 +2,7 @@ name: Daily Gold Stock Playwright Run
 
 on:
   schedule:
-    - cron: '0 3 * * * 0-4'   # 9 AM Bangladesh Time (UTC+6)
+    - cron: '0 3 * * 0-4' # 9 AM Bangladesh Time (UTC+6)
   workflow_dispatch:
 
 jobs:
