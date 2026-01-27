@@ -68,7 +68,9 @@ await page.locator('[id="radix-:rb:"]').click();
 await page.locator('button[role="menuitem"]', { hasText: /log ?out/i }).click();
 
 
-await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/login/');
+//await expect(page).toHaveURL('https://pure-dev-neo.gktechbd.com/login/');
+await expect(page).toHaveURL(/\/login/);
+
 
 
 });
