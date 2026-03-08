@@ -41,15 +41,7 @@ All automated test cases are currently organized inside `playground.spec.js`.
 
 ---
 
-## How to Run the Tests
-
-Install dependencies:
-
-```bash
-npm install
-npx playwright test
-
-Learning Goals
+## Learning Goals
 
 This repository is part of my journey to become a stronger automation engineer by practicing:
 
@@ -68,3 +60,11 @@ Improving Playwright syntax and automation design
 Author
 
 Ehsan Ananno
+
+
+
+
+
+
+
+
