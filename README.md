@@ -19,23 +19,23 @@ The goal of this project is to practice real-world UI automation scenarios and i
 
 So far the following QA Playground tasks have been automated:
 
-1. Dynamic Table – Find Spider-Man
-2. Verify Account (OTP Input)
-3. Tags Input Box
-4. Multi-Level Dropdown
-5. Sortable List (Drag and Drop)
-6. New Tab Handling
-7. Popup Window Handling
-8. Nested Iframe Interaction
+1. Dynamic Table – Find Spider-Man  
+2. Verify Account (OTP Input)  
+3. Tags Input Box  
+4. Multi-Level Dropdown  
+5. Sortable List (Drag and Drop)  
+6. New Tab Handling  
+7. Popup Window Handling  
+8. Nested Iframe Interaction  
 
 More tasks will be added as I continue progressing through the playground challenges.
 
 ---
 
 ## Project Structure
-
 tests/
 └── playground.spec.js
+
 
 All automated test cases are currently organized inside `playground.spec.js`.
 
@@ -48,7 +48,6 @@ Install dependencies:
 ```bash
 npm install
 npx playwright test
-npx playwright test --ui
 
 Learning Goals
 
@@ -69,12 +68,3 @@ Improving Playwright syntax and automation design
 Author
 
 Ehsan Ananno
-
-
----
-
-### How to add it
-1. In your repo folder create a file:
-
-``` id="vkl0w0"
-README.md
