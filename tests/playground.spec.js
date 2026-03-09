@@ -1,15 +1,15 @@
 import {test, expect} from '@playwright/test'
 import { ECDH } from 'crypto';
 test.describe('QA Playground Tasks' , ()=>{
-test("Find Spiderman", async({page})=>{
+test("Find Spiderman", async ({ page }) => {
   await page.goto('https://qaplayground.dev/apps/dynamic-table/');
-  const spidermanRow = page.locator("td", { hasText: "Spider-Man" });
 
-  //await expect(spidermanRow.toContainText('Peter Parker'))
-  
-  await expect(spidermanRow).toContainText('Peter Parker');
+  const spidermanRow = page.locator("tr", {
+    has: page.locator("td", { hasText: "Spider-Man" })
+  });
 
-})
+  await expect(spidermanRow).toContainText("Peter Parker");
+});
 
 
 
@@ -67,7 +67,7 @@ await expect(tagToDelete).toHaveCount(0);
 test('Multilevel Dropdown' , async ({page})=>{
   
   await page.goto('https://qaplayground.dev/apps/multi-level-dropdown/')
-  const mainDropdown= page.locator('.navbar-nav .icon-button') //page.locator('a[href="#home"]').last()
+  const mainDropdown= page.locator('a[href="#home"]').last() // page.locator('.navbar-nav .icon-button')
 
   mainDropdown.click()
 
@@ -215,4 +215,18 @@ test('Nested iframe click', async ({ page }) => {
         .frameLocator('#frame2')
         .getByText('Button Clicked')
   ).toBeVisible();
-})});
+})
+
+test('Progress Bar Shadow DOM', async ({ page }) => {
+  await page.goto('https://qaplayground.dev/apps/shadow-dom/');
+
+  const bar = page.locator('progress-bar');
+
+  await page.getByRole('button', { name: 'Boost 🚀' }).click();
+
+  await expect(bar).toHaveAttribute('percent', '95', { timeout: 15000 });
+});
+
+
+})
+
