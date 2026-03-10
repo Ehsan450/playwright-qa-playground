@@ -27,7 +27,9 @@ So far the following QA Playground tasks have been automated:
 6. New Tab Handling  
 7. Popup Window Handling  
 8. Nested Iframe Interaction  
-
+9.Progress Bar Shadow DOM
+10.Rating with image
+   
 More tasks will be added as I continue progressing through the playground challenges.
 
 ---
