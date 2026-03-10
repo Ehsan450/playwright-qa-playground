@@ -227,6 +227,55 @@ test('Progress Bar Shadow DOM', async ({ page }) => {
   await expect(bar).toHaveAttribute('percent', '95', { timeout: 15000 });
 });
 
+// test('Rating with image' , async({page})=>{
+//   await page.goto('https://qaplayground.dev/apps/rating/')
+//   const ratingStars = page.locator('.stars label')
+//   const ratingMessages = ['I just hate it' , "I don't like it" , 
+//     "This is awesome" , "I just like it" , "I just love it" ];
+//   const emojis = page.locator('.emojis img');
+//   for(let i = 0 ; i <5 ; i++){
+//     await ratingStars.nth(i).click();
+//     await expect(page.getByText(ratingMessages[i])).toBeVisible();
+//     await expect(page.getByText(`${i+1} out of 5`)).toBeVisible();
+//    }
+// })
+
+test('Rating with image', async ({ page }) => {
+  await page.goto('https://qaplayground.dev/apps/rating/');
+
+  const ratingStars = page.locator('.stars label');
+  const message = page.locator('.text');
+  const number = page.locator('.numb');
+  const emojis = page.locator('.emojis img');
+
+  const ratingMessages = [
+    'I just hate it',
+    "I don't like it",
+    'This is awesome',
+    'I just like it',
+    'I just love it'
+  ];
+
+  for (let i = 0; i < 5; i++) {
+    await ratingStars.nth(i).click();
+
+    const messageText = await message.evaluate(el =>
+      //give me the style information for the ::before pseudo element
+      getComputedStyle(el, '::before').content.replace(/"/g, '')
+    );
+//take the DOM element `.text` run JavaScript on it inside the browser
+    const numberText = await number.evaluate(el =>
+      getComputedStyle(el, '::before').content.replace(/"/g, '')
+    );
+
+    const emojiSrc = await emojis.nth(i).getAttribute('src');
+
+    expect(messageText).toBe(ratingMessages[i]);
+    expect(numberText).toBe(`${i + 1} out of 5`);
+    expect(emojiSrc).toContain(`emoji-${i + 1}.png`);
+  }
+});
+
 
 })
 
